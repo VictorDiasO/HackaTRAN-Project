@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedQuaselWidget.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedEllipse1Widget.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedOSstatusBarsonLightWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedBoxWidget3.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedBoxWidget2.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedOShomeIndicatioronLightWidget.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedEnviamosumemailparamariasilvemailcomInsiraocdigodeverif.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedBoxWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedBoxWidget1.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedOShomeIndicatioronLightWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedNavigate_before24px1Widget.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedOSstatusBarsonLightWidget.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedQuaselWidget.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedNextWidget.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedEllipse1Widget.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedBoxWidget2.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedEnviamosumemailparamariasilvemailcomInsiraocdigodeverif.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupconfirmationwidget/generated/GeneratedReenviarcdigoem0023Widget.dart';
 
 /* Frame Sign Up Confirmation
@@ -129,6 +130,15 @@ class GeneratedSignUpConfirmationWidget extends StatelessWidget {
                       width: 375.0,
                       height: 34.0,
                       child: GeneratedOShomeIndicatioronLightWidget(),
+                    ),
+                    Positioned(
+                      left: 281.0,
+                      top: 719.0,
+                      right: null,
+                      bottom: null,
+                      width: 48.0,
+                      height: 48.0,
+                      child: GeneratedNextWidget(),
                     )
                   ]),
             ),

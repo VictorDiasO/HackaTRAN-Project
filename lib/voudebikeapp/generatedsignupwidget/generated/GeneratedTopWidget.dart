@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/voudebikeapp/generatedsignupwidget/generated/GeneratedHeaderWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupwidget/generated/GeneratedEllipse1Widget3.dart';
+import 'package:flutterapp/voudebikeapp/generatedsignupwidget/generated/GeneratedHeaderWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedsignupwidget/generated/GeneratedNavigate_before24px1Widget3.dart';
 
 /* Group Top

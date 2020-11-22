@@ -8,12 +8,12 @@ class GeneratedVectorWidget31 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 12.0,
-      height: 7.409999847412109,
+      width: 7.409999847412109,
+      height: 12.0,
       child: SvgWidget(painters: [
         SvgPathPainter.fill()
-          ..addPath('M10.59 0L6 4.58L1.41 0L0 1.41L6 7.41L12 1.41L10.59 0Z')
-          ..color = Color.fromARGB(255, 201, 206, 214),
+          ..addPath('M1.41 0L0 1.41L4.58 6L0 10.59L1.41 12L7.41 6L1.41 0Z')
+          ..color = Color.fromARGB(255, 255, 255, 255),
       ]),
     );
   }

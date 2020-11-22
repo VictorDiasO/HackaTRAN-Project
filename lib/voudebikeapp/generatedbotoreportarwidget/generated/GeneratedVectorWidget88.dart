@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutterapp/helpers/svg/svg.dart';
 
 /* Vector Vector
@@ -9,24 +8,13 @@ class GeneratedVectorWidget88 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 21.0,
-      height: 30.0,
-      decoration: BoxDecoration(
-        boxShadow: kIsWeb
-            ? []
-            : [
-                BoxShadow(
-                  color: Color.fromARGB(63, 0, 0, 0),
-                  offset: Offset(0.0, 4.0),
-                  blurRadius: 4.0,
-                )
-              ],
-      ),
+      width: 19.886079788208008,
+      height: 18.0,
       child: SvgWidget(painters: [
         SvgPathPainter.fill()
           ..addPath(
-              'M10.5 0C4.695 0 0 4.695 0 10.5C0 18.375 10.5 30 10.5 30C10.5 30 21 18.375 21 10.5C21 4.695 16.305 0 10.5 0ZM10.5 14.25C8.43 14.25 6.75 12.57 6.75 10.5C6.75 8.43 8.43 6.75 10.5 6.75C12.57 6.75 14.25 8.43 14.25 10.5C14.25 12.57 12.57 14.25 10.5 14.25Z')
-          ..color = Color.fromARGB(255, 19, 81, 180),
+              'M7.77913 16.9192L7.77913 11.5155L12.1022 11.5155L12.1022 16.9192C12.1022 17.5137 12.5885 18 13.1829 18L16.4252 18C17.0196 18 17.5059 17.5137 17.5059 16.9192L17.5059 9.35395L19.3432 9.35395C19.8404 9.35395 20.0781 8.73792 19.6999 8.41369L10.6647 0.275593C10.2541 -0.0918643 9.62722 -0.0918643 9.21653 0.275593L0.181407 8.41369C-0.18605 8.73792 0.0409087 9.35395 0.538057 9.35395L2.37534 9.35395L2.37534 16.9192C2.37534 17.5137 2.86168 18 3.4561 18L6.69837 18C7.29279 18 7.77913 17.5137 7.77913 16.9192Z')
+          ..color = Color.fromARGB(255, 153, 159, 191),
       ]),
     );
   }

@@ -7,7 +7,7 @@ class GeneratedVectorWidget78 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 33.91827392578125,
+      width: 36.0,
       height: 36.0,
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutterapp/helpers/transform/transform.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedPrximaWidget.dart';
 import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedBackgroundWidget1.dart';
 

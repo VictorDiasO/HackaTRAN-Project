@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedRectangleWidget8.dart';
 import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedRectangleWidget7.dart';
 import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedCombinedShapeWidget2.dart';
-import 'package:flutterapp/voudebikeapp/generatedquizwidget2/generated/GeneratedRectangleWidget8.dart';
 import 'package:flutterapp/helpers/transform/transform.dart';
 
 /* Group Battery

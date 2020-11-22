@@ -8,16 +8,12 @@ class GeneratedVectorWidget131 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 0.0,
-      height: 3.125,
+      width: 1.5298233032226562,
+      height: 1.5297889709472656,
       child: SvgWidget(painters: [
-        SvgPathPainter.stroke(
-          1.399999976158142,
-          strokeCap: StrokeCap.round,
-          strokeJoin: StrokeJoin.miter,
-        )
+        SvgPathPainter.fill()
           ..addPath(
-              'M-0.7 3.125C-0.7 3.5116 -0.386599 3.825 0 3.825C0.386599 3.825 0.7 3.5116 0.7 3.125L-0.7 3.125ZM0.7 0C0.7 -0.386599 0.386599 -0.7 0 -0.7C-0.386599 -0.7 -0.7 -0.386599 -0.7 0L0.7 0ZM0.7 3.125L0.7 0L-0.7 0L-0.7 3.125L0.7 3.125Z')
+              'M0.764912 0C0.343136 0 0 0.343128 0 0.764895C0 1.18666 0.343136 1.52979 0.764912 1.52979C1.18665 1.52979 1.52982 1.18666 1.52982 0.764895C1.52982 0.343128 1.18669 0 0.764912 0Z')
           ..color = Color.fromARGB(255, 249, 248, 253),
       ]),
     );
