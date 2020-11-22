@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,8 +32,9 @@ class HomeScreeen extends StatelessWidget {
           ClipPath(
               clipper: MyClipper(),
               child: Container(
-                padding: EdgeInsets.only(left: 40, top: 50, right: 20),
-                height: 300,
+                padding:
+                    EdgeInsets.only(left: 40, top: 70, right: 20, bottom: 20),
+                height: 260,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,11 +42,14 @@ class HomeScreeen extends StatelessWidget {
                     Align(
                       alignment: Alignment.topRight,
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Expanded(
                       child: Stack(
                         children: <Widget>[
-                          Image.asset("assets/images/voudebikeLogo.png",
+                          SvgPicture.asset("assets/icons/bikeLogo.svg",
+                              // Image.asset("assets/images/voudebikeLogo.png",
                               width: 200,
                               fit: BoxFit.fitWidth,
                               alignment: Alignment.topCenter),
@@ -54,6 +59,22 @@ class HomeScreeen extends StatelessWidget {
                   ],
                 ),
               )),
+          Container(
+            padding: EdgeInsets.only(left: 40, top: 0, right: 20, bottom: 10),
+            height: 50,
+            width: double.infinity,
+            child: Column(
+              children: [
+                Text("VOU DE BIKE",
+                    style: TextStyle(
+                      fontFamily: 'Slabo',
+                      fontSize: 35,
+                      fontWeight: FontWeight.w600,
+                      height: 1,
+                    ).copyWith(color: Colors.black)),
+              ],
+            ),
+          ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 70),
             height: 60,
@@ -142,7 +163,7 @@ class HomeScreeen extends StatelessWidget {
                               child: Text(
                                   "O custo de manutenção de uma bicicleta é 20 vezes menor que o de um veículo automotor.",
                                   style: TextStyle(
-                                          fontSize: 19,
+                                          fontSize: 18,
                                           fontWeight: FontWeight.w600)
                                       .copyWith(color: Colors.black))),
                         ],
