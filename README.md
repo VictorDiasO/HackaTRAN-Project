@@ -7,3 +7,6 @@ Projeto feito em Flutter com o objetivo de incentivar o uso de bikes como um mei
 - [ ] SignIn Screen
 - [ ] LogIn Screen
 - [ ] Bottom Navigation Bar
+- [ ] Map Screen
+- [ ] CheckList Screen
+- [ ] Map Menus
