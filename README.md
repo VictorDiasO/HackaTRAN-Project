@@ -6,8 +6,8 @@ Projeto feito em Flutter com o objetivo de incentivar o uso de bikes como um mei
 [x] Main Screen
 [x] SignIn Screen
 [x]LogIn Screen
-- [x]Bottom Navigation Bar
-- [x]Map Screen
-- [x]CheckList Screen
-- [ ] Map Menus
-- [ ] Remove top informations (wifi, hour, battery, signal, etc)
+[x]Bottom Navigation Bar
+[x]Map Screen
+[x]CheckList Screen
+[ ] Map Menus
+[ ] Remove top informations (wifi, hour, battery, signal, etc)
