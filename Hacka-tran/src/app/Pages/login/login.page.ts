@@ -20,4 +20,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  async doLogin(){
+    console.log('login done');
+  }
+
 }
