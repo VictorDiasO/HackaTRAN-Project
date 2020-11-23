@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import * as firebase from "firebase/";
 import { ConfirmPasswordValidator } from 'src/app/Components/Validators/CustomFormValidators';
 import { Router } from '@angular/router';
+import { NavExtrasService } from 'src/app/Components/Services/NavExtras/nav-extras.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +16,7 @@ export class SignUpPage implements OnInit {
 
   private signUpFG: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router, private navExtras: NavExtrasService) { 
     this.signUpFG = this.formBuilder.group({
       name: ['', Validators.required],
       surename: ['', Validators.required],
@@ -47,23 +48,32 @@ export class SignUpPage implements OnInit {
         console.log(response);
       }
     })
-    let confirmation: any;
-    // let confirmation: firebase.default.auth.ConfirmationResult;
+    // let confirmation: any;
+    let confirmation: firebase.default.auth.ConfirmationResult;
     try{
-      confirmation = {valid: () => {console.log('i can fly')}};
-      // confirmation = await this.fireAuth.signInWithPhoneNumber(`+55${this.signUpFG.get('phoneNumber').value}`, recaptchaVerifier);
+      // confirmation = {valid: () => {console.log('i can fly')}};
+      confirmation = await this.fireAuth.signInWithPhoneNumber(`+55${this.signUpFG.get('phoneNumber').value}`, recaptchaVerifier);
     } catch(error) {
       confirmation = null;
     }
     if(confirmation != null){
       console.log(confirmation);
+      this.navExtras.setBundle({
+        confirmation: confirmation,
+        userData: this.makeObjFromForm(this.signUpFG)
+      });
       this.router.navigate(['sign-up-token']);
-      // try{
-      //   await confirmation.confirm('1234');
-      // } catch(error){
-      //   console.log(error);
-      // }
     }
+  }
+
+
+  private makeObjFromForm(form: FormGroup): { [key: string]: any }{
+    const obj = {};
+    const keys: string[] = Object.keys(form.controls);
+    keys.forEach(key => {
+      obj[key] = form.controls[key].value;
+    });
+    return obj;
   }
 
 }
