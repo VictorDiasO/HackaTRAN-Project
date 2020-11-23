@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import * as firebase from "firebase/";
+import { ConfirmPasswordValidator } from 'src/app/Components/Validators/CustomFormValidators';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,9 +18,10 @@ export class SignUpPage implements OnInit {
     this.signUpFG = this.formBuilder.group({
       name: ['', Validators.required],
       surename: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required],
+      passwordConfirmation: ['', [Validators.required, ConfirmPasswordValidator]],
       birthDate: ['', Validators.required],
       transportMean: ['', Validators.required],
       state: ['', Validators.required],
