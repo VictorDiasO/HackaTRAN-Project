@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import * as firebase from "firebase/";
 import { ConfirmPasswordValidator } from 'src/app/Components/Validators/CustomFormValidators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,12 +15,12 @@ export class SignUpPage implements OnInit {
 
   private signUpFG: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth) { 
+  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router) { 
     this.signUpFG = this.formBuilder.group({
       name: ['', Validators.required],
       surename: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.minLength(9)]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       passwordConfirmation: ['', [Validators.required, ConfirmPasswordValidator]],
       birthDate: ['', Validators.required],
@@ -37,6 +38,9 @@ export class SignUpPage implements OnInit {
   }
 
   async doSignUp(){
+    if(!this.signUpFG.valid){
+      return;
+    }
     const recaptchaVerifier: firebase.default.auth.RecaptchaVerifier = new firebase.default.auth.RecaptchaVerifier('recapcha', {
       size: 'invisible',
       callback: (response: any) => {
@@ -45,12 +49,13 @@ export class SignUpPage implements OnInit {
     })
     let confirmation: firebase.default.auth.ConfirmationResult;
     try{
-      await this.fireAuth.signInWithPhoneNumber('+5511957198000', recaptchaVerifier);
+      confirmation = await this.fireAuth.signInWithPhoneNumber(`+55${this.signUpFG.get('phoneNumber').value}`, recaptchaVerifier);
     } catch(error) {
       confirmation = null;
     }
     if(confirmation != null){
       console.log(confirmation);
+      this.router.navigate(['sign-up-token', confirmation]);
       try{
         await confirmation.confirm('1234');
       } catch(error){
