@@ -96,7 +96,10 @@
           <ion-col size="10">
             <ion-item>
               <ion-label position="floating">Estado</ion-label>
-              <ion-input formControlName="state" placeholder="SP"></ion-input>
+              <ion-select formControlName="state" placeholder="SP" (ionChange)="changeSelectedState($event)">
+                <ion-select-option *ngFor="let state of stateList" [value]="state.id">{{state.description}}</ion-select-option>
+              </ion-select>
+              <!-- <ion-input formControlName="state" placeholder="SP"></ion-input> -->
             </ion-item>
           </ion-col>
           <ion-col size="1"></ion-col>
@@ -106,7 +109,10 @@
           <ion-col size="10">
             <ion-item>
               <ion-label position="floating">Cidade</ion-label>
-              <ion-input formControlName="city" placeholder="São Paulo"></ion-input>
+              <ion-select formControlName="city" placeholder="São Paulo">
+                <ion-select-option *ngFor="let city of selectedState.cities" [value]="city.id">{{city.description}}</ion-select-option>
+              </ion-select>
+              <!-- <ion-input formControlName="city" placeholder="São Paulo"></ion-input> -->
             </ion-item>
           </ion-col>
           <ion-col size="1"></ion-col>

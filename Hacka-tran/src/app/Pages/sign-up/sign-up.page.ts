@@ -7,6 +7,8 @@ import { ConfirmPasswordValidator } from 'src/app/Components/Validators/CustomFo
 import { Router } from '@angular/router';
 import { NavExtrasService } from 'src/app/Components/Services/NavExtras/nav-extras.service';
 import { Subscription } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { SignUpStateList } from 'src/app/Interfaces/SignUpStateList.interface';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,8 +19,17 @@ export class SignUpPage implements OnInit, OnDestroy {
 
   private signUpFG: FormGroup;
   private authListener: Subscription;
+  private stateList: SignUpStateList[];
+  private selectedState: SignUpStateList | null;
 
-  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router, private navExtras: NavExtrasService) { 
+  constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router, private navExtras: NavExtrasService, private firestore: AngularFirestore) { 
+    this.selectedState = {
+      cities: [],
+      id: null,
+      name: null,
+      description: null
+    };
+    this.stateList = [];
     this.signUpFG = this.formBuilder.group({
       name: ['', Validators.required],
       surename: ['', Validators.required],
@@ -42,6 +53,19 @@ export class SignUpPage implements OnInit, OnDestroy {
         this.router.navigate(['home']);
       }
     });
+    this.getStateList();
+  }
+  
+  async getStateList(){
+    try{
+      const result = await this.firestore.collection('Parameters/SignUp/Countries/br/States').get().toPromise();
+      result.docs.forEach(doc => {
+        this.stateList.push(doc.data() as SignUpStateList);
+      });
+      console.log(this.stateList);
+    } catch(error){
+      console.log(error);
+    }
   }
 
   getMaxDate(){
@@ -74,6 +98,11 @@ export class SignUpPage implements OnInit, OnDestroy {
       });
       this.router.navigate(['sign-up-token']);
     }
+  }
+
+  changeSelectedState(event: any){
+    console.log(event);
+    this.selectedState = this.stateList.filter(state => state.id = event.detail.value)[0];
   }
 
 
