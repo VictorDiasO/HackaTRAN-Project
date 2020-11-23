@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
@@ -6,15 +6,17 @@ import * as firebase from "firebase/";
 import { ConfirmPasswordValidator } from 'src/app/Components/Validators/CustomFormValidators';
 import { Router } from '@angular/router';
 import { NavExtrasService } from 'src/app/Components/Services/NavExtras/nav-extras.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
 })
-export class SignUpPage implements OnInit {
+export class SignUpPage implements OnInit, OnDestroy {
 
   private signUpFG: FormGroup;
+  private authListener: Subscription;
 
   constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router, private navExtras: NavExtrasService) { 
     this.signUpFG = this.formBuilder.group({
@@ -30,8 +32,16 @@ export class SignUpPage implements OnInit {
       city: ['', Validators.required]
     });
   }
+  ngOnDestroy(): void {
+    this.authListener.unsubscribe();
+  }
 
   ngOnInit() {
+    this.authListener = this.fireAuth.authState.subscribe(user => {
+      if(user != null){
+        this.router.navigate(['home']);
+      }
+    });
   }
 
   getMaxDate(){

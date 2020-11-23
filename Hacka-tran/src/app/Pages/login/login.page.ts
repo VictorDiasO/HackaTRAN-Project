@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit, OnDestroy {
 
   private loginFG: FormGroup;
   private invalidLogin: boolean;
+  private authListener: Subscription;
 
   constructor(private formBuilder: FormBuilder, private fireAuth: AngularFireAuth, private router: Router) { 
     this.invalidLogin = false;
@@ -20,8 +22,16 @@ export class LoginPage implements OnInit {
       password: ['', Validators.required],
     });
   }
+  ngOnDestroy(): void {
+    this.authListener.unsubscribe();
+  }
 
   ngOnInit() {
+    this.authListener = this.fireAuth.authState.subscribe(user => {
+      if(user != null){
+        this.router.navigate(['home']);
+      }
+    });
   }
 
   async doLogin(){
