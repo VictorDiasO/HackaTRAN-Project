@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { NgxMaskIonicModule } from 'ngx-mask-ionic';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +19,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgxMaskIonicModule.forRoot()
   ],
   providers: [
     StatusBar,

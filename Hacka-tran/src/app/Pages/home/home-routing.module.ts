@@ -6,7 +6,19 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },  {
+    path: 'history',
+    loadChildren: () => import('./tabs/history/history.module').then( m => m.HistoryPageModule)
+  },
+  {
+    path: 'report',
+    loadChildren: () => import('./tabs/report/report.module').then( m => m.ReportPageModule)
+  },
+  {
+    path: 'community',
+    loadChildren: () => import('./tabs/community/community.module').then( m => m.CommunityPageModule)
   }
+
 ];
 
 @NgModule({
