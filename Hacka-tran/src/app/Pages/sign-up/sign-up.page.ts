@@ -47,20 +47,22 @@ export class SignUpPage implements OnInit {
         console.log(response);
       }
     })
-    let confirmation: firebase.default.auth.ConfirmationResult;
+    let confirmation: any;
+    // let confirmation: firebase.default.auth.ConfirmationResult;
     try{
-      confirmation = await this.fireAuth.signInWithPhoneNumber(`+55${this.signUpFG.get('phoneNumber').value}`, recaptchaVerifier);
+      confirmation = {valid: () => {console.log('i can fly')}};
+      // confirmation = await this.fireAuth.signInWithPhoneNumber(`+55${this.signUpFG.get('phoneNumber').value}`, recaptchaVerifier);
     } catch(error) {
       confirmation = null;
     }
     if(confirmation != null){
       console.log(confirmation);
-      this.router.navigate(['sign-up-token', confirmation]);
-      try{
-        await confirmation.confirm('1234');
-      } catch(error){
-        console.log(error);
-      }
+      this.router.navigate(['sign-up-token']);
+      // try{
+      //   await confirmation.confirm('1234');
+      // } catch(error){
+      //   console.log(error);
+      // }
     }
   }
 

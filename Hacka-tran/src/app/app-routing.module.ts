@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'landing-page',
     loadChildren: () => import('./Pages/landing-page/landing-page.module').then( m => m.LandingPagePageModule)
   },
+  {
+    path: 'sign-up-token',
+    loadChildren: () => import('./Pages/sign-up-token/sign-up-token.module').then( m => m.SignUpTokenPageModule)
+  },
 ];
 
 @NgModule({
