@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { NgxMaskIonicModule } from 'ngx-mask-ionic';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { NgxMaskIonicModule } from 'ngx-mask-ionic';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    NgxMaskIonicModule.forRoot()
+    NgxMaskIonicModule.forRoot(),
+    Geolocation
   ],
   providers: [
     StatusBar,
