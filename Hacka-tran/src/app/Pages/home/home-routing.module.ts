@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'community',
     loadChildren: () => import('./tabs/community/community.module').then( m => m.CommunityPageModule)
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./tabs/main/main.module').then( m => m.MainPageModule)
   }
 
 ];
